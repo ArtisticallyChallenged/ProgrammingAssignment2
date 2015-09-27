@@ -1,13 +1,7 @@
-## Given an initial invertible matrix, cache the matrix, calculate its 
-## inverse, and the cache its inverse.
-## Run the function again.  If it is the same cached matrix,
-## return its cached inverse.
-## If not, calculate the inverse of new matrix
-
-## This first function gets the first matrix and calculates 
+## This first function gets the matrix and calculates 
 ## its inverse
 
-makeCacheMatrix <- function(x = matrix()) {  
+makeCacheMatrix <- function(x = matrix(1:4,2,2)) {  
      m <- NULL
      set <- function(y) {
      x <<- y
@@ -25,19 +19,19 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 
-## Checks to see if new matrix is the same as cache matrix
+## Checks to see if inverse has been computed
 ## If so, returns the inverse.
 ## If not, calculates the inverse
 
-cacheSolve <- function(x,y=matrix()) {
-        ## Return a matrix that is the inverse of 'x'
-          m <- x$getsolve()
-        ## If the new matrix is the same as the cache matrix
-        ## Returns the cache inverse     
-     if(y == x$get()) {
+cacheSolve <- function(x, ...) {
+     m <- x$getsolve()
+     if(!is.null(m)) {
           message("getting cached data")
           return(m)
      }
-     m <- solve(y)
+     data <- x$get()
+     m <- solve(data)
+     x$setsolve(m)
      m
 }
+
