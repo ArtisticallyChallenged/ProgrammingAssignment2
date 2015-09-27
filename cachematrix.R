@@ -1,7 +1,11 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Given an initial invertible matrix, cache the matrix, calculate its 
+## inverse, and the cache its inverse.
+## Run the function again.  If it is the same cached matrix,
+## return its cached inverse.
+## If not, calculate the inverse of new matrix
 
-## Write a short comment describing this function
+## This first function gets the first matrix and calculates 
+## its inverse
 
 makeCacheMatrix <- function(x = matrix()) {  
      m <- NULL
